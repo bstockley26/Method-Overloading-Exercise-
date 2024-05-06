@@ -4,52 +4,57 @@
     {
         static void Main(string[] args)
         {
+            var a = 0;
+            var b = 1;
 
-            Add(2, 4);
+            var answer =Add(a, b);
+            Console.WriteLine($"Integer: {answer}");
 
-            Add(3.8m, 4.9m);
+            var c = 3.6m;
+            var d = 4.9m;
+            var decimalAnswer=Add(c, d);
+            Console.WriteLine($"decimal: {decimalAnswer}");
+
+            string thirdAnswer=Add(a,b,true);
+
+            Console.WriteLine(thirdAnswer);
+            
+        }
+        static int Add(int numOne, int numTwo)
+        {
+            return numOne + numTwo;
+        }
+
+            static decimal Add(decimal numOne, decimal numTwo)
+        {
+            return numOne + numTwo;
 
             
-            decimal one=.50m;
-            decimal two=.50m;
-
-            var addition = one + two;
-
-            var dollars = addition == 1;
-
-            Console.WriteLine(dollars);
         }
-        static void Add(int one, int two)
+        static string Add(int numOne, int numTwo, bool isTrueOrFalse)
         {
-            var addition = (one + two);
+            var sum = numOne + numTwo;
 
-            Console.WriteLine(addition);
-        }
-        static void Add(decimal one, decimal two)
-        {
-            var addition = one + two;
+            
 
-            Console.WriteLine(addition);
-        }
-        //static string Add(int one, int two, bool dollars)
-        //{
+            if (isTrueOrFalse==true && sum > 1)
+            {
 
-        //    var addition = one + two;
-
-        //    dollars = addition == 1;
-
-        //    Console.WriteLine(dollars);
-
-        //    if (dollars = true)
-        //    {
-
-
-        //        Console.WriteLine($"{addition} dollars");
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine($"{addition} dollar");
-        //    }
+               return $"{sum} dollars";
+            }
+            else if (isTrueOrFalse == true && sum ==1)
+            {
+                return $"{sum} dollar";
+            }
+            else if (isTrueOrFalse == true && sum < 1)
+            {
+                return $"{sum} cents";
+            }
+            else
+            {
+                return sum.ToString();
+            }
 
         }
     }
+}
